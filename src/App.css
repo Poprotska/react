@@ -1,9 +1,15 @@
 img {
   width: 250px;
 }
-
-body {
-  background-color: midnightblue;
-  color: goldenrod;
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  margin: 10px 20px;
+}
+.name {
   font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
