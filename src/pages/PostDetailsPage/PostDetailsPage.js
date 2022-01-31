@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postService} from "../../services";
-import {PostWithCommentsButton} from "../../components";
+import {PostWithCommentsButton} from "../../Components";
 
 const PostDetailsPage = () => {
     const [post, setPost] = useState(null);

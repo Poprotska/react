@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {albumService} from "../../services";
-import {Photo} from "../../components";
+import {Photo} from "../../Components";
 
 const PhotosPage = () => {
     const [photos, setPhotos] = useState([]);

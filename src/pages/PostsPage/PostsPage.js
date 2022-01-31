@@ -3,7 +3,7 @@ import {Outlet} from "react-router-dom";
 
 import {postService} from "../../services";
 import css from './PostsPage.module.css';
-import {PostItem} from "../../components";
+import {PostItem} from "../../Components";
 
 const PostsPage = () => {
     const [posts, setPosts] = useState([]);

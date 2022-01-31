@@ -1,5 +1,5 @@
 import {Routes, Route, Navigate} from "react-router-dom";
-import {Layout} from "./components";
+import {Layout} from "./Components";
 import {
   AlbumsPage, PhotosPage,
   PostCommentsPage,

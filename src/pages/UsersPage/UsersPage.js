@@ -3,7 +3,7 @@ import {Outlet} from "react-router-dom";
 
 import css from './UsersPage.module.css';
 import {userService} from "../../services";
-import {User} from "../../components";
+import {User} from "../../Components";
 
 const UsersPage = () => {
     const [users, setUsers] = useState([]);

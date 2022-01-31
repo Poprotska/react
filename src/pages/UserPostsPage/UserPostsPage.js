@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {userService} from "../../services";
-import {Post} from "../../components";
+import {Post} from "../../Components";
 
 const UserPostsPage = () => {
     const [posts, setPosts] = useState([]);

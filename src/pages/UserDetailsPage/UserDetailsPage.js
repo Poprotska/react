@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
 
 import {userService} from "../../services";
-import {UserDetails} from "../../components";
+import {UserDetails} from "../../Components";
 
 const UserDetailsPage = () => {
     const {id} = useParams();
