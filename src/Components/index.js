@@ -1,4 +1,3 @@
-export * from './Details/Details';
-export * from './FormCats/FormCats';
-export * from './FormDogs/FormDogs';
-export * from './List/List';
+export * from './Reducer/Reducer';
+export * from './ButtonCats/ButtonCats';
+export * from './ButtonDogs/ButtonDogs';

@@ -1,40 +1,70 @@
-import React, {useState} from 'react';
-import classes from "./Components/App.module.css";
-import List from "./Components/List/List";
-import FormDogs from "./Components/FormDogs/FormDogs";
-import FormCats from "./Components/FormCats/FormCats";
+import {useReducer, useRef} from "react";
 
-function App() {
-    const [catNames, setCatNames] = useState( [])
-    const [dogNames, setDogNames] = useState( [])
+import {ButtonCats, ButtonDogs, actions, formReducer} from "./Components";
 
-    const createNewCatName = (newCatName)  => {
-        setCatNames ([...catNames,newCatName])
-    }
-    const createNewDogName = (newDogName) => {
-        setDogNames ([...dogNames,newDogName])
+
+const App = () => {
+    const [state, dispatch] = useReducer(formReducer, {cats: [], dogs: []});
+    const catInput = useRef();
+    const dogInput = useRef();
+
+    const addCat = (e) => {
+        e.preventDefault();
+        const name = catInput.current.value;
+
+        if (!name) {
+            return
+        }
+
+        const cat = {
+            id: Date.now(),
+            name
+        }
+
+        dispatch({type: actions.ADD_CAT, payload: {cat}})
+        catInput.current.value = ''
     }
 
-    const removeCat = (catName) => {
-        setCatNames(catNames.filter(c => c.id !== catName.id))
+    const addDog = (e) => {
+        e.preventDefault();
+        const name = dogInput.current.value;
+
+        if (!name) {
+            return
+        }
+
+        const dog = {
+            id: Date.now(),
+            name
+        }
+
+        dispatch({type: actions.ADD_DOG, payload: {dog}})
+        catInput.current.value = ''
     }
-    const removeDog = (dogName) => {
-        setDogNames(dogNames.filter(d => d.id !== dogName.id))
+
+    const deleteCat = (id) => {
+        dispatch({type: actions.DEL_CAT, payload: {id}})
+    }
+
+    const deleteDog = (id) => {
+        dispatch({type: actions.DEL_DOG, payload: {id}})
     }
 
     return (
-        <div className={classes.App}>
-            <div className={classes.forms}>
-                <FormCats create={createNewCatName}/>
-                <FormDogs create={createNewDogName}/>
-            </div>
+        <div>
+            <form style={{padding: '15px', display: 'flex', justifyContent: 'center'}}>
+                <label>Add Cat: <input ref={catInput} type="text" name={'cat'}/></label>
+                <button onClick={addCat}>Save</button>
+                <label>Add Dog: <input ref={dogInput} type="text" name={'dog'}/></label>
+                <button onClick={addDog}>Save</button>
+            </form>
             <hr/>
-            <div className={classes.lists}>
-                <div className={classes.list}><List remove={removeCat} name={catNames}/></div>
-                <List remove={removeDog} name={dogNames}/>
+            <div style={{padding: '15px', display: 'flex', justifyContent: 'center', gap: '350px'}}>
+                <ButtonCats cats={state.cats} deleteCat={deleteCat}/>
+                <ButtonDogs dogs={state.dogs} deleteDog={deleteDog}/>
             </div>
         </div>
     );
-}
+};
 
 export default App;
