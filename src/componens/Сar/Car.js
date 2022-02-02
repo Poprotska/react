@@ -1,6 +1,6 @@
 const Car = ({car: {id, model, price, year}, getCarId}) => {
     return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '20px', gap: '20px'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '3px'}}>
             <div>
                 <div>Model: {model}</div>
                 <div>Price: {price}</div>

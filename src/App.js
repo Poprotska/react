@@ -13,8 +13,8 @@ const App = () => {
   }
   return (
       <div>
-        <Form getFormData={getFormData}/>
-        <Cars getCarId={getCarId} cars={cars}/>
+          <Form getFormData={getFormData}/>
+          <Cars getCarId={getCarId} cars={cars}/>
       </div>
   );
 };

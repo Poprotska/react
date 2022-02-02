@@ -9,7 +9,7 @@ const Form = ({getFormData}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submit)} style={{display:'flex',justifyContent: 'center'}}>
             <label>Model: <input type="text" {...register('model')}/></label>
             <label>Price: <input type="text" {...register('price')}/></label>
             <label>Year: <input type="text" {...register('year')}/></label>
